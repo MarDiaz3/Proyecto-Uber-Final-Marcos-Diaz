@@ -10,14 +10,14 @@ import jakarta.persistence.*;
 public class Conductor {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    
+
     private Integer Id;
     @Column
     private String nombre;
     @Column
     private String apellido;
     @Column
-    private LocalDate fechaDeNacimient;
+    private LocalDate fechaDeNacimient; //año,mes,dia //fecha actual=edad de la persona
     @Column
     private String automovil;
 
@@ -26,6 +26,7 @@ public class Conductor {
     //relacion uno a uno 
     @OneToOne (mappedBy = "conductor", cascade = CascadeType.ALL)
     private Viaje viaje;
+    @Column
     private boolean estado = true; 
 
     //constructorVacio
