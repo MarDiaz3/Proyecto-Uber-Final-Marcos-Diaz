@@ -1,5 +1,8 @@
 package com.example.demo.Models;
 
-public class TipoDeViaje {
+public enum TipoDeViaje {
+    CORTO, //7000
+    MEDIO, //10000
+    LARGO, //20000
     
 }
