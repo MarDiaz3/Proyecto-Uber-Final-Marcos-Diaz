@@ -9,14 +9,14 @@ import java.util.List;
 @Service
 public class ConductorService {
     @Autowired
-    private ConductorRepository conductorRepository;
+    private ConductorRepository conductorRepository; //inyeccion de repository
 
       //obtiene tddos los Conductores verdaderos (est=true)
     public List<Conductor> traeConductores() { //trae todos los pruduct de la BD
     return conductorRepository.findByEstadoTrue();
     }
 
-    //trae Conductores Por ID(busca el id)
+    //trae un conductor Por ID(busca el id)
     public Conductor traeConductorPorId (Integer Id) {
         if (Id == null) {
             throw new IllegalArgumentException("El Id no puede ser nulo");
