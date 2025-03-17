@@ -2,7 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Models.Conductor;
 import com.example.demo.Service.ConductorService;
-
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +22,11 @@ public ConductorController (ConductorService conductorService){
     this.conductorService = conductorService;}
 
     //indexPrimer HTML
+    @GetMapping ("/")
+    public String index(){
+        return "index"; 
+    }
+
 
     //Ver Lista de conductores activos=true
     @GetMapping("/conductores")
@@ -35,14 +40,14 @@ public ConductorController (ConductorService conductorService){
     @GetMapping("/nuevoConductor")
     public String FormRegistroConductor( Model model){
        model.addAttribute("condutor", new Conductor());
-        return "FormularioDeConductores"; //html registra nuevo conductores
+        return "formConductores"; //html registra nuevo conductores
     }
 
     //guardar nuevos conductores(id)
     @PostMapping("/guardarNuevoConductor")
     public String RegistrarNuevoConductores(@ModelAttribute Conductor conductor){
         conductorService.crearConductor(conductor);
-        return "redirec:conductores";//vuelve a la lisa de nuevos conductores
+        return "redirect:/conductores";//vuelve a la lisa de nuevos conductores
     }
 
     //eliminar conductor(ocultar de true a false)

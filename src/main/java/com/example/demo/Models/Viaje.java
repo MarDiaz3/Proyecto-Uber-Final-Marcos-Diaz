@@ -105,6 +105,13 @@ this.conductor = conductor;
 this.costo= calcularCostoViaje(this.tipo, conductor);
 }
 
+public boolean getEstado(){
+    return estado;
+}
+public void setEstado(boolean estado){
+this.estado = estado;
+}
+
 
 
 }

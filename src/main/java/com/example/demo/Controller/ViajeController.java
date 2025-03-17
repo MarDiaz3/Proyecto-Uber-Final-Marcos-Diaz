@@ -31,7 +31,7 @@ public class ViajeController {
             return "redirect:/conductores?error=ConductorNoExiste";  }
             model.addAttribute("tiposDeViaje", TipoDeViaje.values());
             model.addAttribute("conductor", conductor); //un conductor
-            return "solicitarElViaje";  }
+            return "solicitarViaje";  }
 
 
 
@@ -49,15 +49,12 @@ public class ViajeController {
             if (conductor == null) {
                 return "redirect:/conductores?error=ConductorNoExiste";   }
             
-            Viaje nuevoViaje = new Viaje(tipoDeViaje, nombreDeCliente, DNI, lugarDepartida, lugarDestino, conductor);
+            Viaje nuevoViaje = new Viaje(tipoDeViaje,conductorId,nombreDeCliente,DNI,lugarDepartida,lugarDestino,conductor);
             viajeService.guardarViaje(nuevoViaje);
 
             model.addAttribute("viaje", nuevoViaje); //guarda todos los datos del Viaje UBER
-            return "ComprobanteDeViaje";
+            return "ComprobanteViaje";
 
         }
-        
-
-
 
 }
