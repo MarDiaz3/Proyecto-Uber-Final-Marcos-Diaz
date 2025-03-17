@@ -3,7 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Models.Conductor;
 import com.example.demo.Service.ConductorService;
 
-import jakarta.persistence.Id;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +21,14 @@ private final ConductorService conductorService;
 public ConductorController (ConductorService conductorService){
     this.conductorService = conductorService;}
 
+    //indexPrimer HTML
+
     //Ver Lista de conductores activos=true
-    @GetMapping
+    @GetMapping("/conductores")
     public String traeListaConductores(Model model) {
         List<Conductor> conductores = conductorService.traeListaConductores();
         model.addAttribute("conductores", conductores);
-        return "index";//htmlm
+        return "TarejetaDeConductores";//htmlm
     }
 
     //Mostrar form. donde se registra nuevos conductores

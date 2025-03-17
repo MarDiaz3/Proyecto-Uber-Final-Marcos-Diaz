@@ -26,8 +26,8 @@ public class Viaje {
     private boolean estado = true;
 
 
-//relacion 
-@OneToOne
+//relacion muchos a uno se ve distinto de los dos models
+@ManyToOne
 @JoinColumn (name = "conductor_id")
 private Conductor conductor;
 
@@ -38,7 +38,6 @@ private Conductor conductor;
 public Viaje (TipoDeViaje tipo,double costo,String nombreDeCliente, Integer DNI,String lugarDepartida, String lugarDestino, Conductor conductor) {
     
     this.tipo = tipo;
-    this.costo = costo;
     this.nombreDeCliente = nombreDeCliente;
     this.DNI = DNI;
     this.lugarDepartida = lugarDepartida;
@@ -71,6 +70,11 @@ public Integer getId(){
 public void setId(Integer Id){
 this.Id = Id; }
 
+
+public TipoDeViaje getTipo(){
+    return tipo;}
+public void setTipo(TipoDeViaje tipo){
+this.tipo = tipo; }
 
 public String getNombreDeCliente(){
     return nombreDeCliente;}

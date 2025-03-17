@@ -1,6 +1,8 @@
 package com.example.demo.Models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -20,12 +22,14 @@ public class Conductor {
     private LocalDate fechaDeNacimient; //año,mes,dia //fecha actual=edad de la persona
     @Column
     private String automovil;
-
+   
+ 
     @Enumerated (EnumType.STRING)
     private TipoDeAutomovil tipoDeAutomovil;
-    //relacion uno a uno 
-    @OneToOne (mappedBy = "conductor", cascade = CascadeType.ALL)
-    private Viaje viaje;
+    //relacion uno a muchos se ve distinto de los dos modelos
+    @OneToMany (mappedBy = "conductor", cascade = CascadeType.ALL)
+    private List<Viaje> viajes = new ArrayList<>();
+    
     @Column
     private boolean estado = true; 
 
@@ -91,6 +95,13 @@ public TipoDeAutomovil getTipoAutomovil(){
 }
 public void setTipoAutomovil(TipoDeAutomovil tipoDeAutomovil){
 this.tipoDeAutomovil = tipoDeAutomovil; 
+}
+
+public List<Viaje> getViaje(){
+    return viajes;
+}
+public void setViaje(List<Viaje> viajes){
+this.viajes = viajes; 
 }
 
 
