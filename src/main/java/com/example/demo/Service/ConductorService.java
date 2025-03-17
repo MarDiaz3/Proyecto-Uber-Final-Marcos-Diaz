@@ -12,7 +12,7 @@ public class ConductorService {
     private ConductorRepository conductorRepository; //inyeccion de repository
 
       //obtiene tddos los Conductores verdaderos (est=true)
-    public List<Conductor> traeConductores() { //trae todos los pruduct de la BD
+    public List<Conductor> traeListaConductores() { //trae todos los pruduct de la BD
     return conductorRepository.findByEstadoTrue();
     }
 
@@ -33,7 +33,7 @@ public class ConductorService {
         }
 
          //eliminar conductor(actualizar el estado a false o esconder)
-    public Conductor eliminarConductor (Integer Id) {
+    public Conductor eliminarOcultarConductor (Integer Id) {
         if(Id == null) {
             throw new IllegalArgumentException("El id no puede ser null");
         }

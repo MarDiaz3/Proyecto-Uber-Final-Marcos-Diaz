@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository; //llama a la libra
 import java.util.List;
 
 //integer por el ID
-public interface ViajeRepository extends JpaRepository <Viaje, Long> {
-//busca Viajes activos
+public interface ViajeRepository extends JpaRepository <Viaje, Integer> {
+//trae(devuelve) Viajes activos
 List<Viaje> findByEstadoTrue(); 
     
 }     
