@@ -13,7 +13,7 @@ import com.example.demo.Models.TipoDeViaje;
 import com.example.demo.Models.Viaje;
 import com.example.demo.Service.ConductorService;
 import com.example.demo.Service.ViajeService;
-
+@RequestMapping("/viaje")
 @Controller
 public class ViajeController {
     private final ViajeService viajeService;
@@ -29,31 +29,31 @@ public class ViajeController {
         Conductor conductor = conductorService.traeConductorPorId(IdConductor);
         if (conductor == null) {
             return "redirect:/conductores?error=ConductorNoExiste";  }
-            model.addAttribute("tiposDeViaje", TipoDeViaje.values());
+            model.addAttribute("tiposViaje", TipoDeViaje.values());
             model.addAttribute("conductor", conductor); //un conductor
-            return "solicitarViaje";  }
+            return "formViaje";  }
 
 
 
     //imprimir y mostrar el resumen del viaje UBER
     @PostMapping("/AceptarElViaje")
     public String AceptarViaje (
-        @RequestParam("tipoDeViaje") TipoDeViaje tipoDeViaje,
-        @RequestParam("NombreDePasajero") String nombreDeCliente,
-        @RequestParam("DniCliente") Integer DNI,
-        @RequestParam("LugarDeSalida") String lugarDepartida,
-        @RequestParam("LugarDestino") String  lugarDestino,
+        @RequestParam("tipoViaje") TipoDeViaje tipoViaje,
+        @RequestParam("nombreDeCliente") String nombreDeCliente,
+        @RequestParam("DNI") Integer DNI,
+        @RequestParam("lugarDepartida") String lugarDepartida,
+        @RequestParam("lugarDestino") String  lugarDestino,
         @RequestParam("conductorId") Integer conductorId,
         Model model ) {
             Conductor conductor = conductorService.traeConductorPorId(conductorId);
             if (conductor == null) {
                 return "redirect:/conductores?error=ConductorNoExiste";   }
             
-            Viaje nuevoViaje = new Viaje(tipoDeViaje,conductorId,nombreDeCliente,DNI,lugarDepartida,lugarDestino,conductor);
+            Viaje nuevoViaje = new Viaje(tipoViaje,conductorId,nombreDeCliente,DNI,lugarDepartida,lugarDestino,conductor);
             viajeService.guardarViaje(nuevoViaje);
 
             model.addAttribute("viaje", nuevoViaje); //guarda todos los datos del Viaje UBER
-            return "ComprobanteViaje";
+            return "resumenViaje";
 
         }
 

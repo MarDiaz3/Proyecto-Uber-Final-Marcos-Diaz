@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css
+" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-primary py-3 shadow">
+        <div class="container d-flex align-items-center">
+            <img src="https://lh6.googleusercontent.com/4G1-UH88Ii5eF1XsZuDsVhboMqGbM-B1U-mNmXddXTKpn6EIu0sqJKXP29Drlvkd2du6zMQ_p52QMVXP6Zgmerj1kL_s4o2U61GMNopL0cSefgII6pFvm6SDBqUMWTzzZwrQUodxAdh74Ot8-4qPNQ" alt="Logo" width="60" class="me-3">
+            <nav class="ms-auto">
+                <ul class="nav">
+                    <li class="nav-item"><a href="/" class="nav-link btn btn-light text-dark mx-1">Inicio</a></li>
+                    <li class="nav-item"><a href="/conductores/conductores" class="nav-link btn btn-light text-dark mx-1">Conductores</a></li>
+                    <li class="nav-item"><a href="/conductores/nuevoConductor" class="nav-link btn btn-light text-dark mx-1">Registro de Conductores</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container py-5">
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+            <div class="card shadow-lg p-4 rounded" style="max-width: 600px; width: 100%;">
+                <h2 class="text-center mb-4 text-primary fw-bold"><i class="bi bi-file-earmark-text me-2"></i> Resumen del Viaje</h2>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-person-circle me-2"></i> Nombre del Cliente:</strong> <span th:text="${viaje.nombreDeCliente}"></span></p>
+                </div>
+                
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-telephone-fill me-2"></i> DNI:</strong> <span th:text="${viaje.DNI}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-map-fill me-2"></i> Punto de Partida:</strong> <span th:text="${viaje.lugarDepartida}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-geo-alt-fill me-2"></i> Destino:</strong> <span th:text="${viaje.lugarDestino}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-car-front me-2"></i> Tipo de Viaje:</strong> <span th:text="${viaje.tipo}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-person-circle me-2"></i> Conductor:</strong> <span th:text="${viaje.conductor.nombre}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-car-front me-2"></i> Automóvil:</strong> <span th:text="${viaje.conductor.tipoAutomovil}"></span></p>
+                </div>
+        
+                <div class="mb-3">
+                    <p><strong><i class="bi bi-cash-coin me-2"></i> Costo del Viaje:</strong> <span th:text="${viaje.costo}"></span></p>
+                </div>
+        
+                <div class="text-center mt-4">
+                    <button onclick="window.print()" class="btn btn-success me-2 w-100 fw-bold shadow-sm">
+                        <i class="bi bi-printer me-2"></i> Imprimir
+                    </button>
+                    <a href="/" class="w-100">
+                        <button class="btn btn-outline-secondary w-100 mt-2">
+                            <i class="bi bi-house-door me-2"></i> Volver al Inicio
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+       
+
+
+
+
+
+        
+    </main>
+    
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js
+"></script>
+</body>
+</html> 
