@@ -33,7 +33,7 @@ public ConductorController (ConductorService conductorService){
     public String traeListaConductores(Model model) {
         List<Conductor> conductores = conductorService.traeListaConductores();
         model.addAttribute("conductores", conductores);
-        return "TarejetaDeConductores";//htmlm
+        return "cardConductores";//htmlm
     }
 
     //Mostrar form. donde se registra nuevos conductores
@@ -47,7 +47,7 @@ public ConductorController (ConductorService conductorService){
     @PostMapping("/guardarNuevoConductor")
     public String RegistrarNuevoConductores(@ModelAttribute Conductor conductor){
         conductorService.crearConductor(conductor);
-        return "redirect:/conductores";//vuelve a la lisa de nuevos conductores
+        return "redirect:/conductores/conductores";//vuelve a la lisa de nuevos conductores
     }
 
     //eliminar conductor(ocultar de true a false)
@@ -67,7 +67,7 @@ public ConductorController (ConductorService conductorService){
         return "redirect:/coductores"; //si es nulo vuelve a la lista
     }
 
-    Integer edad = Period.between(conductor.getFechaDeNacimient(), LocalDate.now()).getYears();
+    Integer edad = Period.between(conductor.getFechaDeNacimiento(), LocalDate.now()).getYears();
     model.addAttribute("edad", edad); //agrega edad calculada(fechaNac - ahora = edad)
 
     model.addAttribute("conductor", conductor);

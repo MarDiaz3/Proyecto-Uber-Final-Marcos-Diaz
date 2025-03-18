@@ -19,13 +19,13 @@ public class Conductor {
     @Column
     private String apellido;
     @Column
-    private LocalDate fechaDeNacimient; //año,mes,dia //fecha actual=edad de la persona
+    private LocalDate fechaDeNacimiento; //año,mes,dia //fecha actual=edad de la persona
     @Column
     private String automovil;
    
  
-    @Enumerated (EnumType.STRING)
-    private TipoDeAutomovil tipoDeAutomovil;
+    @Enumerated(EnumType.STRING)
+    private TipoAutomovil tipoAutomovil; 
     //relacion uno a muchos se ve distinto de los dos modelos
     @OneToMany (mappedBy = "conductor", cascade = CascadeType.ALL)
     private List<Viaje> viajes = new ArrayList<>();
@@ -38,13 +38,13 @@ public Conductor()  {
 }
 
 //constructoresParametros
-public Conductor (String nombre,String apellido,LocalDate fechaDeNacimient,String automovil, TipoDeAutomovil tipoDeAutomovil,boolean estado){
+public Conductor (String nombre,String apellido,LocalDate fechaDeNacimiento,String automovil, TipoAutomovil tipoAutomovil,boolean estado){
 
     this.nombre = nombre;
     this.apellido = apellido;
-    this.fechaDeNacimient = fechaDeNacimient;
+    this.fechaDeNacimiento = fechaDeNacimiento;
     this.automovil = automovil;
-    this.tipoDeAutomovil = tipoDeAutomovil;
+    this.tipoAutomovil = tipoAutomovil;
     this.estado = estado;
     
 }
@@ -74,12 +74,13 @@ this.apellido = apellido;
 }
 
 
-public LocalDate getFechaDeNacimient(){
-    return fechaDeNacimient;
+public LocalDate getFechaDeNacimiento() {
+    return fechaDeNacimiento;
 }
-public void setNechaDeNacimient(LocalDate fechaDeNacimient){
-this.fechaDeNacimient = fechaDeNacimient; 
-}
+
+public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+    this.fechaDeNacimiento = fechaDeNacimiento;
+} 
 
 
 public String getAutomovil(){
@@ -90,12 +91,14 @@ this.automovil = automovil;
 }
 
 
-public TipoDeAutomovil getTipoAutomovil(){
-    return tipoDeAutomovil;
+public TipoAutomovil getTipoAutomovil() {
+    return tipoAutomovil;
 }
-public void setTipoAutomovil(TipoDeAutomovil tipoDeAutomovil){
-this.tipoDeAutomovil = tipoDeAutomovil; 
-}
+
+public void setTipoAutomovil(TipoAutomovil tipoAutomovil) {
+    this.tipoAutomovil = tipoAutomovil;
+} 
+
 
 public List<Viaje> getViaje(){
     return viajes;

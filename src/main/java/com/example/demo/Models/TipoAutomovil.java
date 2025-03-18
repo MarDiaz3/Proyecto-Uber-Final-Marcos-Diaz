@@ -1,8 +1,7 @@
 package com.example.demo.Models;
 
-public enum TipoDeAutomovil {
+public enum TipoAutomovil {
     BASE,
     LUXE,
-    PREMIUM,
-    
-}
+    PREMIUM;
+} 
