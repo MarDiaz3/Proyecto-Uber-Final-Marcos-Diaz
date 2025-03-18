@@ -63,6 +63,13 @@
             </div>
         </div>
         <a href="/conductores/conductores" class="btn btn-secondary">Volver a la lista de conductores</a>
+        <!-- Botón para solicitar viaje -->
+        <div class="text-center mt-4">
+            <h4 class="fw-semibold">¿Listo para viajar?</h4>
+            <a th:href="@{/viaje/formViajeReserv/{Id}(Id=${conductor.Id})}" class="btn btn-lg btn-success shadow-sm">
+                <i class="bi bi-car-front-fill"></i> Solicitar Viaje
+            </a>
+        </div>
     </main>
 
     <footer class="bg-dark text-white text-center py-3 mt-5">

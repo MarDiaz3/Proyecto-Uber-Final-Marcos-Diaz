@@ -57,10 +57,10 @@ public Viaje (TipoDeViaje tipo,double costo,String nombreDeCliente, Integer DNI,
 
      double adicional = switch (conductor.getTipoAutomovil()){
         case BASE -> 0;
-        case LUXE -> 0.10;
-        case PREMIUM -> 0.20;
+        case LUXE -> precioBase*0.10;
+        case PREMIUM ->precioBase* 0.20;
     };
-    return precioBase* + adicional;
+    return precioBase + adicional;
     }
 
 
@@ -111,6 +111,14 @@ public boolean getEstado(){
 public void setEstado(boolean estado){
 this.estado = estado;
 }
+
+public double getCosto(){
+    return costo;
+}
+public void setCosto(double costo){
+this.costo = costo;
+}
+
 
 
 
