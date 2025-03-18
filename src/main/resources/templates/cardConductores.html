@@ -48,12 +48,12 @@
                                     th:text="${conductor.tipoAutomovil}"></span>
                             </p>
 
-                            <a th:href="@{/conductores/detallesDeCondutor/{Id}(id=${conductor.id})}" class="btn btn-primary w-100 mb-2">
+                            <a th:href="@{/conductores/detallesDeCondutor/{Id}(Id=${conductor.Id})}" class="btn btn-primary w-100 mb-2">
                                 <i class="bi bi-info-circle me-2"></i> Ver Detalles
                             </a>
 
                             <!-- Formulario para eliminar conductor -->
-                            <form th:action="@{/RideOn/eliminar/{id}(id=${conductor.id})}" method="post"
+                            <form th:action="@{/conductores/eliminarConductor/{Id}(Id=${conductor.Id})}" method="post"
                                 class="d-inline">
                                 <button type="submit" class="btn btn-danger w-100"
                                     onclick="return confirm('¿Estás seguro de que deseas eliminar este conductor?')">

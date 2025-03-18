@@ -51,10 +51,10 @@ public ConductorController (ConductorService conductorService){
     }
 
     //eliminar conductor(ocultar de true a false)
-    @PatchMapping("/eliminarConductor/{Id}")
+    @PostMapping("/eliminarConductor/{Id}")
     public String eliminarConductor (@PathVariable Integer Id){
         conductorService.eliminarOcultarConductor(Id);
-        return "redirect:/conductores";
+        return "redirect:/conductores/conductores";
     }
 
 
@@ -64,14 +64,14 @@ public ConductorController (ConductorService conductorService){
         Conductor conductor = conductorService.traeConductorPorId(Id);//llama al service para obtener el conduct
       
         if (conductor == null) {
-        return "redirect:/coductores"; //si es nulo vuelve a la lista
+        return "redirect:/coductores/conductores"; //si es nulo vuelve a la lista
     }
 
     Integer edad = Period.between(conductor.getFechaDeNacimiento(), LocalDate.now()).getYears();
     model.addAttribute("edad", edad); //agrega edad calculada(fechaNac - ahora = edad)
 
     model.addAttribute("conductor", conductor);
-    return "detalleDeConductor"; //vist de todos los detalles de conductor
+    return "detalleConductor"; //vist de todos los detalles de conductor
 
 
     }
